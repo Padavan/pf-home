@@ -76,7 +76,16 @@ h2 {
 
 h3 {
   font-size: 20px;
+}
+
+h4 {
+  font-size: 18px;
+  line-height: 20px;
   font-weight: 500;
+  margin-left: 0.5rem;
+  margin-right: 1rem;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 @media screen and (max-width: 700px) {
@@ -90,7 +99,7 @@ h3 {
     line-height: 30px;
   }
 
-  h3 {
+  h4 {
     font-size: 18px;
   }
 }
@@ -147,15 +156,16 @@ main {
 }
 
 .project {
-  margin: 0;
+  margin: 0.5rem;
   border: 1px solid black;
-  min-width: 300px;
-  min-height: 200px;
-  max-height: 350px;
+  min-width: 200px;
+  max-height: 80px;
+/*  min-height: 100px;*/
+/*  max-height: 150px;*/
   flex: 1 200px 300px;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  flex-direction: row;
+  justify-content: flex-start;
 }
 
 .inactive {
@@ -167,22 +177,28 @@ main {
   display: none;
 }
 
-
-.project h3 {
-  padding: 30px;
-}
-
 .project:hover {
   border: 1px solid #DF0003;
   color: #DF0003;
   cursor: pointer;
 }
 
-.project:hover > .project-footer > .triangle {
+.project-image {
+  width: 80px;
+  height: 80px;
+  padding: 0.8rem;
+}
+
+.project-image img {
+  object-fit: contain;
+  width: 100%;
+  height: auto;
+} 
+
+.project:hover > .h4 {
+  text-decoration: underline;
   /*border: 1px solid #DF0003;*/
   /*color: #DF0003;*/
-  transform: rotate(-45deg);
-  visibility: visible;
 }
 
 .inactive:hover {
@@ -198,14 +214,9 @@ main {
   padding-left: 30px;
 }
 
-.triangle {
-  border-top: 17px solid #DF0003;
-  border-left: 17px solid transparent;
-  border-right: 17px solid transparent;
-  border-bottom: 17px solid transparent;
-  visibility: hidden;
-  /*transition: transform 200ms ease-in-out;*/
-  transform: rotate(0deg);
+.list {
+  display: flex;
+  flex-direction: column;
 }
 
 </style>
@@ -214,7 +225,7 @@ main {
   <header>
     <div>
       <h1>DMITRII SHIKHALEEV</h1>
-      <h2>Superficial, Intrusive, Immature and Toxic Frontend Developer</h2>
+      <h2>Software Engineer</h2>
     </div>
     <div>
       <a href="https://github.com/Padavan" target="_blank" rel="noopener noreferrer">GitHub</a>
@@ -224,50 +235,49 @@ main {
   </header>
 
   <main>
-    <div class="project">
-      <h3>Project 1
-      </h3>
-      <div class="project-footer">
-        <p>01.11.2021</p>
-        <div class="triangle"></div>
-      </div>
+    <div class="list">
+      <h3>Public</h3>
+      <a href="http://timer.poppedfisheye.org" class="project">
+        <div class="project-image">
+          <img src="./app-pomodoro.png"></img>
+        </div>
+        <h4>Pomodoro Timer</h4>
+      </a>
+
+      <a class="project inactive">
+        <div class="project-image">
+          <img src="./app-salmon.png"></img>
+        </div>
+        <h4>ImageBoard</h4>
+      </a>
+      <a class="project inactive">
+        <div class="project-image">
+          <img src="./app-deck.png"></img>
+        </div>
+        <h4>Sticker Deck</h4>
+      </a>
     </div>
-    <div class="project">
-      <h3>Project 2
-      </h3>
-      <div class="project-footer">
-        <p>01.11.2021</p>
-        <div class="triangle"></div>
-      </div>
+
+    <div class="list">
+      <h3>Private</h3>
+      <a href="http://sync.poppedfisheye.org" class="project">
+        <div class="project-image">
+          <img src="./app-syncthing.png"></img>
+        </div>
+        <h4>Syncthing</h4>
+      </a>
+      <a href="http://file.poppedfisheye.org" class="project">
+        <div class="project-image">
+          <img src="./app-filebrowser.png"></img>
+        </div>
+        <h4>Filebrowser</h4>
+      </a>
     </div>
-    <div class="project">
-      <h3>Project 3
-      </h3>
-      <div class="project-footer">
-        <p>01.11.2021</p>
-        <div class="triangle"></div>
-      </div>
-    </div>
-    <div class="project">
-      <h3>Project 4
-      </h3>
-      <div class="project-footer">
-        <p>01.11.2021</p>
-        <div class="triangle"></div>
-      </div>
-    </div>
-    <div class="project inactive">
-      <h3>Project 5
-      </h3>
-      <div class="project-footer">
-        <p>01.11.2021</p>
-        <div class="triangle"></div>
-      </div>
-    </div>
+
   </main>
 
   <footer>
-    <p>Dmitrii Shikhaleev ⑨ 2021</p>
+    <p>Dmitrii Shikhaleev &copy <script>document.write(new Date().getFullYear())</script></p>
     <p>Saint-Petersburg, Russia</p>
   </footer>
 </body>
