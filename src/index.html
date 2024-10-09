@@ -57,13 +57,13 @@ body {
   min-height: 100vh;
 }
 
-h1, h2, p {
+h1, h2, h3, h4, p {
   margin: 0;
 }
 
 h1 {
-  font-size: 86px;
-  line-height: 86px;
+  font-size: 40px;
+  line-height: 40px;
   font-weight: 500;
 }
 
@@ -82,57 +82,38 @@ h4 {
   font-size: 18px;
   line-height: 20px;
   font-weight: 500;
-  margin-left: 0.5rem;
-  margin-right: 1rem;
-  margin-top: auto;
-  margin-bottom: auto;
 }
 
-@media screen and (max-width: 700px) {
-  h1 {
-    font-size: 44px;
-    line-height: 86px;
-  }
-
-  h2 {
-    font-size: 20px;
-    line-height: 30px;
-  }
-
-  h4 {
-    font-size: 18px;
-  }
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1rem;
 }
-
 
 a {
-  margin: 0 0.5rem;
+  margin: 0;
   color: black;
+  text-decoration: none;
 }
 
 a:hover {
  color: #DF0003;
 }
 
-a:visited {
- color: black;
-}
-
-main {
-  flex: 1;
-  display: flex;
+a:visited :hover{
+ color: #B20002;
 }
 
 header {
   display: flex;
   justify-content: space-between;
   align-content: flex-start;
-  padding: 30px;
+  padding: 1rem 30px;
   flex-wrap: wrap;
-}
-
-header div {
-  margin-bottom: 30px;
+  border-bottom: 1px solid #cacaca;
+  background: #34485d;
+  color: #fafafa;
 }
 
 footer {
@@ -153,19 +134,23 @@ main {
   padding: 30px;
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
+  flex: 1;
 }
 
 .project {
-  margin: 0.5rem;
-  border: 1px solid black;
+  margin: 0;
+  border: 1px solid #cacaca;
   min-width: 200px;
-  max-height: 80px;
-/*  min-height: 100px;*/
-/*  max-height: 150px;*/
-  flex: 1 200px 300px;
+  max-width: 400px;
+  flex: 1;
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+  padding: 1rem;
+  aspect-ration: 1;
+  background: #fafafa;
 }
 
 .inactive {
@@ -178,15 +163,19 @@ main {
 }
 
 .project:hover {
-  border: 1px solid #DF0003;
+/*  border: 1px solid #DF0003;*/
   color: #DF0003;
   cursor: pointer;
 }
 
 .project-image {
-  width: 80px;
-  height: 80px;
-  padding: 0.8rem;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0;
+  align-self: flex-end;
 }
 
 .project-image img {
@@ -216,7 +205,18 @@ main {
 
 .list {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.bio {
+  display: flex;
+  gap: 0.5rem;
+
+  a {
+    color: #fafafa;
+  }
 }
 
 </style>
@@ -227,7 +227,7 @@ main {
       <h1>DMITRII SHIKHALEEV</h1>
       <h2>Software Engineer</h2>
     </div>
-    <div>
+    <div class="bio">
       <a href="https://github.com/Padavan" target="_blank" rel="noopener noreferrer">GitHub</a>
       <a href="https://t.me/padavanchik" target="_blank" rel="noopener noreferrer">Telegram</a>
       <a href="mailto:padavankun@gmail.com" target="_blank" rel="noopener noreferrer">Mail</a>
@@ -235,50 +235,60 @@ main {
   </header>
 
   <main>
-    <div class="list">
+      <section>
       <h3>Public</h3>
-      <a href="http://timer.poppedfisheye.org" class="project">
-        <div class="project-image">
-          <img src="./app-pomodoro.png"></img>
-        </div>
-        <h4>Pomodoro Timer</h4>
-      </a>
+      <div class="list">
+        <a href="https://poppedfisheye.org/timer" class="project">
+          <h4>pomodoro timer</h4>
+          <div class="project-image">
+            <img src="./app-pomodoro.png"></img>
+          </div>
+        </a>
 
-      <a class="project inactive">
-        <div class="project-image">
-          <img src="./app-salmon.png"></img>
-        </div>
-        <h4>ImageBoard</h4>
-      </a>
-      <a class="project inactive">
-        <div class="project-image">
-          <img src="./app-deck.png"></img>
-        </div>
-        <h4>Sticker Deck</h4>
-      </a>
-    </div>
+        <a class="project inactive">
+          <h4>imageboard salmon</h4>
+          <div class="project-image">
+            <img src="./app-salmon.png"></img>
+          </div>
+        </a>
+        <a class="project inactive">
+          <h4>sticker deck</h4>
+          <div class="project-image">
+            <img src="./app-deck.png"></img>
+          </div>
+        </a>
+      </div>
+    </section>
 
-    <div class="list">
-      <h3>Private</h3>
-      <a href="http://sync.poppedfisheye.org" class="project">
-        <div class="project-image">
-          <img src="./app-syncthing.png"></img>
-        </div>
-        <h4>Syncthing</h4>
-      </a>
-      <a href="http://file.poppedfisheye.org" class="project">
-        <div class="project-image">
-          <img src="./app-filebrowser.png"></img>
-        </div>
-        <h4>Filebrowser</h4>
-      </a>
-    </div>
+    <section>
+    <h3>Private</h3>
+      <div class="list">
+    <!--     <a href="https://sync.poppedfisheye.org" class="project">
+          <h4>Syncthing</h4>
+          <div class="project-image">
+            <img src="./app-syncthing.png"></img>
+          </div>
+        </a> -->
+        <a href="https://poppedfisheye.org/files" class="project">
+          <h4>filebrowser</h4>
+          <div class="project-image">
+            <img src="./app-filebrowser.png"></img>
+          </div>
+        </a>
+        <a href="https://poppedfisheye.org/radicale" class="project">
+          <h4>radicale</h4>
+          <div class="project-image">
+            <img src="./radicale.svg"></img>
+          </div>
+        </a>
+      </div>
+      
+    </section>
 
   </main>
 
   <footer>
     <p>Dmitrii Shikhaleev &copy <script>document.write(new Date().getFullYear())</script></p>
-    <p>Saint-Petersburg, Russia</p>
   </footer>
 </body>
 </html>
